@@ -15,19 +15,26 @@ import time  # Library to analyze the execution time of the algorithm
 
 
 def example1(manatees):
+    result = ""
     for manatee in manatees:
         print(manatee['name'])
+        result = f"{manatee['name']}\n{result}"
+    return result
 
 
 def example2(manatees):
     print(manatees[0]['name'])
     print(manatees[0]['age'])
+    return f"{manatees[0]['name']}\n{manatees[0]['age']}"
 
 
 def example3(manatees):
+    result = ''
     for manatee in manatees:
         for manatee_property in manatee:
             print(f"{manatee_property} : {manatee[manatee_property]}")
+            result = f"{manatee_property} : {manatee[manatee_property]}\n"
+    return result
 
 
 def example4(manatees):
@@ -39,10 +46,11 @@ def example4(manatees):
             else:
                 oldest_manatee = manatee1['name']
     print(oldest_manatee)
+    return oldest_manatee
 
 
 if __name__ == '__main__':
-    manatees = [{"name": "Alan Kay", "age": 80}, {"name": "Jerzy Gregorek", "age": 66}]
+    manatees = [{"name": "Fulano", "age": 10}, {"name": "Beltrano", "age": 20}]
 
     # Eficiência de tempo: O(n)
     print("Example 1:")

@@ -10,10 +10,10 @@
 
 
 def show_excitement():
-    string = "I am super excited for this course!"
-    space = " "
-    return print((string+space) * 5)
+    string = "I am super excited for this course! "
+    return string * 5
 
 
 if __name__ == '__main__':
-    show_excitement()
+    exec_function = show_excitement()
+    print(exec_function)
