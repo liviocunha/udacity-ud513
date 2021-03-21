@@ -1,5 +1,6 @@
 import unittest
 from linked_list import Element, LinkedList
+from stack import ElementStack, LinkedListStack, Stack
 
 
 class LinkedListTests(unittest.TestCase):
@@ -51,6 +52,52 @@ class LinkedListTests(unittest.TestCase):
         self.ll.insert(self.e4, 3)
         self.ll.delete(1)
         self.assertEqual(3, self.ll.get_position(3).value)
+
+
+class StackTests(unittest.TestCase):
+    def setUp(self):
+        self.e1 = ElementStack(1)
+        self.e2 = ElementStack(2)
+        self.e3 = ElementStack(3)
+        self.e4 = ElementStack(4)
+        self.stack = Stack(self.e1)
+
+    def test_push_element_two_and_three(self):
+        self.assertIsNone(self.stack.push(self.e2))
+        self.assertIsNone(self.stack.push(self.e3))
+
+    def test_pop_first(self):
+        self.stack.push(self.e2)
+        self.stack.push(self.e3)
+        self.assertEqual(3, self.stack.pop().value)
+
+    def test_pop_second(self):
+        self.stack.push(self.e2)
+        self.stack.push(self.e3)
+        self.stack.pop().value
+        self.assertEqual(2, self.stack.pop().value)
+
+    def test_pop_third(self):
+        self.stack.push(self.e2)
+        self.stack.push(self.e3)
+        self.stack.pop().value
+        self.stack.pop().value
+        self.assertEqual(1, self.stack.pop().value)
+
+    def test_pop_fourth(self):
+        self.stack.push(self.e2)
+        self.stack.push(self.e3)
+        self.stack.pop().value
+        self.stack.pop().value
+        self.stack.pop().value
+        self.assertIsNone(self.stack.pop())
+
+    def test_push_element_four(self):
+        self.assertIsNone(self.stack.push(self.e4))
+
+    def test_pop_element_four(self):
+        self.stack.push(self.e4)
+        self.assertEqual(4, self.stack.pop().value)
 
 
 if __name__ == '__main__':
