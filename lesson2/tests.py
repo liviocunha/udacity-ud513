@@ -142,7 +142,5 @@ class QueueTests(unittest.TestCase):
         self.assertEqual(self.q.peek(), 5)
 
 
-
-
 if __name__ == '__main__':
     unittest.main()
