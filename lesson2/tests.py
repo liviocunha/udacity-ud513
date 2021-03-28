@@ -1,6 +1,7 @@
 import unittest
 from linked_list import Element, LinkedList
 from stack import ElementStack, LinkedListStack, Stack
+from queue import Queue
 
 
 class LinkedListTests(unittest.TestCase):
@@ -98,6 +99,49 @@ class StackTests(unittest.TestCase):
     def test_pop_element_four(self):
         self.stack.push(self.e4)
         self.assertEqual(4, self.stack.pop().value)
+
+
+class QueueTests(unittest.TestCase):
+    def setUp(self):
+        self.q = Queue(1)
+        self.q.enqueue(2)
+        self.q.enqueue(3)
+
+    def test_peek(self):
+        self.assertEqual(self.q.peek(), 1)
+
+    def test_dequeue(self):
+        self.assertEqual(self.q.dequeue(), 1)
+
+    def test_enqueue(self):
+        self.assertEqual(self.q.enqueue(4), [1, 2, 3, 4])
+
+    def test_second_dequeue(self):
+        self.q.dequeue()
+        self.assertEqual(self.q.dequeue(), 2)
+
+    def test_thirdy_dequeue(self):
+        self.q.dequeue()
+        self.q.dequeue()
+        self.assertEqual(self.q.dequeue(), 3)
+
+    def test_fourty_dequeue(self):
+        self.q.enqueue(4)
+        self.q.dequeue()
+        self.q.dequeue()
+        self.q.dequeue()
+        self.assertEqual(self.q.dequeue(), 4)
+
+    def test_second_peek(self):
+        self.q.enqueue(4)
+        self.q.dequeue()
+        self.q.dequeue()
+        self.q.dequeue()
+        self.q.dequeue()
+        self.q.enqueue(5)
+        self.assertEqual(self.q.peek(), 5)
+
+
 
 
 if __name__ == '__main__':
