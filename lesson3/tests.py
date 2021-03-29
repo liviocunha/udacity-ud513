@@ -2,6 +2,7 @@ import unittest
 from binary_search import binary_search
 from get_fib import get_fib
 from bubble_sort import bubble_sort
+from merge_sort import merge_sort
 
 
 class BinarySearchTests(unittest.TestCase):
@@ -31,6 +32,16 @@ class BubbleSortTest(unittest.TestCase):
     def test_bubble_sort(self):
         self.expected = [17, 20, 26, 31, 44, 54, 55, 77, 93]
         self.assertEqual(bubble_sort(self.test_list), self.expected)
+
+
+class MergeSortTest(unittest.TestCase):
+    def setUp(self):
+        self.test_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+
+    def test_bubble_sort(self):
+        self.expected = [17, 20, 26, 31, 44, 54, 55, 77, 93]
+        merge_sort(self.test_list)
+        self.assertEqual(self.test_list, self.expected)
 
 
 if __name__ == '__main__':
