@@ -15,34 +15,34 @@
 def merge_sort(test_list):
     # print("Splitting ", test_list)
     if len(test_list) > 1:
-        mid = len(test_list)//2
-        lefthalf = test_list[:mid]
-        righthalf = test_list[mid:]
+        mid = len(test_list) // 2
+        left_half = test_list[:mid]
+        right_half = test_list[mid:]
 
-        merge_sort(lefthalf)
-        merge_sort(righthalf)
+        merge_sort(left_half)
+        merge_sort(right_half)
 
         i = 0
         j = 0
         k = 0
-        while i < len(lefthalf) and j < len(righthalf):
-            if lefthalf[i] < righthalf[j]:
-                test_list[k] = lefthalf[i]
-                i = i+1
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                test_list[k] = left_half[i]
+                i += 1
             else:
-                test_list[k] = righthalf[j]
-                j = j+1
-            k = k+1
+                test_list[k] = right_half[j]
+                j += 1
+            k += 1
 
-        while i < len(lefthalf):
-            test_list[k] = lefthalf[i]
-            i = i+1
-            k = k+1
+        while i < len(left_half):
+            test_list[k] = left_half[i]
+            i += 1
+            k += 1
 
-        while j < len(righthalf):
-            test_list[k] = righthalf[j]
-            j = j+1
-            k = k+1
+        while j < len(right_half):
+            test_list[k] = right_half[j]
+            j += 1
+            k += 1
     # print("Merging ", test_list)
 
 

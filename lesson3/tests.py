@@ -39,7 +39,7 @@ class MergeSortTest(unittest.TestCase):
     def setUp(self):
         self.test_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
 
-    def test_bubble_sort(self):
+    def test_merge_sort(self):
         self.expected = [17, 20, 26, 31, 44, 54, 55, 77, 93]
         merge_sort(self.test_list)
         self.assertEqual(self.test_list, self.expected)
@@ -49,7 +49,7 @@ class QuickSortTest(unittest.TestCase):
     def setUp(self):
         self.test_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
 
-    def test_bubble_sort(self):
+    def test_quick_sort(self):
         self.expected = [17, 20, 26, 31, 44, 54, 55, 77, 93]
         quick_sort(self.test_list)
         self.assertEqual(self.test_list, self.expected)
